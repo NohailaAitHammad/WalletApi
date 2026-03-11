@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Devise;
 use Illuminate\Http\Request;
 
 class DeviseController extends Controller
@@ -12,7 +13,8 @@ class DeviseController extends Controller
      */
     public function index()
     {
-        //
+       // $devises = Devise::all();
+
     }
 
     /**

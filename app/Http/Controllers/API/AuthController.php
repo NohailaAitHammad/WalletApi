@@ -70,9 +70,14 @@ class AuthController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function user(Request  $request)
     {
-        //
+        $user = $request->user();
+        return response()->json([
+            'success' => true,
+            'message' => 'Profile utilisateur recupere',
+            'data' => $user
+        ]);
     }
 
     /**

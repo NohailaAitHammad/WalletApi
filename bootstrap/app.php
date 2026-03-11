@@ -30,13 +30,13 @@ return Application::configure(basePath: dirname(__DIR__))
                 'message' => 'Methode HTTP non autorisée',
             ], 405);
         });
-//        $exceptions->render(function (\Throwable $e, $request){
-//                return response()->json([
-//                    'success' => false,
-//                    'message' => 'Error interne du serveur',
-////                    'errors' => $e->errors()
-//                ], 500);
-//        });
+        $exceptions->render(function (\Throwable $e, $request){
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Error interne du serveur',
+                   'errors' => $e->getMessage()
+                ], 500);
+        });
         $exceptions->render(function (ValidationException $e, $request){
             return response()->json([
                 'success' => false,

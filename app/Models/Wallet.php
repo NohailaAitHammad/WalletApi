@@ -9,10 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Wallet extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['balance', 'devise_id', 'deleted_at'];
+    protected $fillable = ['balance', 'devise_id', 'deleted_at', 'user_id'];
 
     public function devise() : BelongsTo
     {
         return $this->belongsTo(Devise::class);
+    }
+    public function user() : BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }
