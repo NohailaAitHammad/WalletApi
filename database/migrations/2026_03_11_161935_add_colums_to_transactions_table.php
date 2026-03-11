@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['transfer'])->nullable();
+            $table->string('name')->nullable();
+            $table->enum('type', ['deposit', 'withdraw', 'transfer_out', 'transfer_in'])->nullable();
             $table->foreignId('wallet_id')->constrained()->cascadeOnDelete();
             $table->float('amount')->default(0.00);
             $table->text('description')->nullable();
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->engine('innoDB');
             $table->timestamps();
         });
+
     }
 
     /**

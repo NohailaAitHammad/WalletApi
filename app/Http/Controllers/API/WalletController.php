@@ -71,7 +71,7 @@ class WalletController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Wallet mise a jour  avec succes',
-            'data' => $wallet,
+            'data' => $wallet->devise,
         ]);
 
     }

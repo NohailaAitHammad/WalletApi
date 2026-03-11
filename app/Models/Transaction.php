@@ -9,19 +9,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Transaction extends Model
 {
 
-    protected $fillable = ['amount', 'type', 'wallet_id', 'receiver_wallet_id', 'sender_wallet_id', 'balance_after'];
+    protected $fillable = ['amount', 'type', 'wallet_id','description', 'receiver_wallet_id', 'sender_wallet_id', 'balance_after'];
 
     public function wallet() : BelongsTo
     {
         return $this->belongsTo(Wallet::class);
     }
 
-    public function sender() : BelongsTo
+    public function transaction_out() : BelongsTo
     {
-        return $this->belongsTo(Wallet::class);
+        return $this->belongsTo(Wallet::class, 'sender_wallet_id');
     }
-    public function receiver() : BelongsTo
+    public function transaction_in() : BelongsTo
     {
-        return $this->belongsTo(Wallet::class);
+        return $this->belongsTo(Wallet::class, 'receiver_wallet_id');
     }
 }

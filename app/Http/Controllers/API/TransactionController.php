@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
 use App\Models\Wallet;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class TransactionController extends Controller
 {
@@ -32,6 +34,7 @@ class TransactionController extends Controller
     {
         $validated = $request->validated();
         $validated['wallet_id'] = $wallet->id;
+        $validated['type'] = 'deposit';
         $transaction = Transaction::create($validated);
         $transaction->balance_after = $wallet->balance + $transaction->amount;
         $wallet->balance = $transaction->balance_after;
@@ -43,7 +46,7 @@ class TransactionController extends Controller
             'success' => true,
             'message' => 'Depot effecture avec success',
             'data' => $transaction
-        ], 201);
+        ]);
     }
 
     /**
@@ -53,6 +56,7 @@ class TransactionController extends Controller
     {
         $validated = $request->validated();
         $validated['wallet_id'] = $wallet->id;
+        $validated['type'] = 'withdraw';
         //if wallet amount < amount transaction
         $transaction = Transaction::create($validated);
         $transaction->balance_after = $wallet->balance - $transaction->amount;
@@ -71,35 +75,65 @@ class TransactionController extends Controller
     public function transfer(TransactionRequest $request, Wallet  $wallet)
     {
         $validated = $request->validated();
+        if($wallet->balance < $validated['amount']){
+            return response()->json([
+                'success' => false,
+                'message' => "Solde insuffisant.Solde actuelle : $wallet->balance",
+            ], 400);
+        }
         $validated['wallet_id'] = $wallet->id;
-        //if wallet amount < amount transaction
-        $transaction = Transaction::create($validated);
-        $transaction->balance_after = $wallet->balance - $transaction->amount;
-        $wallet->balance = $transaction->balance_after;
+        try {
+            $receiverWallet = Wallet::findOrFail($validated['receiver_wallet_id']);
+        }catch (Exception $e){
+            return response()->json([
+                'success' => false,
+                'message' => "Le wallet destinataire est introuvable",
+            ], 404);
+        }
+        if($wallet->devise->nom !== $receiverWallet->devise->nom){
+            return response()->json([
+                'success' => false,
+                'message' => "Transfert impossible : les deux wallets doivent avoir la même devise.",
+            ], 400);
+        }
+        $wallet->balance -= $validated['amount'];
+        $receiverWallet->balance += $validated['amount'];
+
         $wallet->save();
-        $transaction->save();
-        $transaction->load('wallet');
+        $receiverWallet->save();
+
+
+
+        $transaction_out = Transaction::create([
+            'wallet_id' => $validated['wallet_id'],
+            'type' => 'transfer_out',
+            "amount" => $validated['amount'],
+            'description' => $validated['description'],
+            'receiver_wallet_id' => $receiverWallet->id,
+            'balance_after' =>  $wallet->balance,
+        ]);
+        $transaction_in = Transaction::create([
+            'wallet_id' => $receiverWallet->id,
+            'type' => 'transfer_in',
+            "amount" => $validated['amount'],
+            'description' => $validated['description'],
+            'sender_wallet_id' =>$wallet->id,
+            'balance_after' =>  $receiverWallet->balance,
+        ]);
 
         return response()->json([
             'success' => true,
-            'message' => 'Retrait effectué avec succès.',
-            'data' => $transaction
+            'message' => 'Transfert effectué avec succès.',
+            'data' => [
+                "transaction_out" => $transaction_out,
+                "transaction_in" => $transaction_in,
+                'wallet' => $wallet
+            ]
         ], 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
