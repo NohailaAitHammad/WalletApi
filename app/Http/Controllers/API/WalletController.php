@@ -48,6 +48,18 @@ class WalletController extends Controller
      */
     public function show(Wallet  $wallet)
     {
+        if ($wallet->user_id !== auth()->id()) {
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action."
+            ], 403);
+        }
+        if(!Wallet::findOrFail($wallet->id)){
+            return response()->json([
+                'success' => false,
+                'message' => "Le wallet  est introuvable",
+            ], 404);
+        }
         $wallet->load('devise');
         return response()->json([
             "success" => true,
@@ -61,6 +73,12 @@ class WalletController extends Controller
      */
     public function update(WalletRequest  $request, Wallet $wallet)
     {
+        if ($wallet->user_id !== auth()->id()) {
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action."
+            ], 403);
+        }
         $validateed = $request->validated();
         //$validateed['user_id'] = auth()->id();
 
@@ -81,6 +99,12 @@ class WalletController extends Controller
      */
     public function destroy(Wallet $wallet)
     {
+        if ($wallet->user_id !== auth()->id()) {
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action."
+            ], 403);
+        }
         $wallet->delete();
         return response()->json([
             'success' => true,

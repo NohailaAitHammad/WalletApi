@@ -23,7 +23,7 @@ class TransactionRequest extends FormRequest
     {
         return [
             'type' => ['sometimes','required', 'string'],
-            'amount' => ['required','min:0', 'integer'],
+            'amount' => ['required','min:1', 'numeric'],
             'description' => ['required', 'string', 'max:255'],
             'receiver_wallet_id' => ['sometimes', 'required', 'exists:wallets,id'],
             'sender_wallet_id' => ['sometimes','required', 'exists:wallets,id'],
@@ -33,9 +33,9 @@ class TransactionRequest extends FormRequest
     public function messages()
     {
         return [
-            'amount:min' => 'Le montant doit être supérieur à 0.',
-            'receiver_wallet_id:required' => "Le wallet destinataire est obligatoire.",
-            'receiver_wallet_id:exists' => "Le wallet destinataire est introuvable",
+            'amount.min' => 'Le montant doit être supérieur à 0.',
+            'receiver_wallet_id.required' => "Le wallet destinataire est obligatoire.",
+            'receiver_wallet_id.exists' => "Le wallet destinataire est introuvable",
 
         ];
 

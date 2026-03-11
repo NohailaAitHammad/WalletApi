@@ -15,9 +15,13 @@ class TransactionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function transactions(Wallet  $wallet)
+    public function transactions(Request  $request,Wallet  $wallet)
     {
-        $transactions = Transaction::where('wallet_id', $wallet->id)->get();
+        $perPages = $request->get('per_page', 15);
+
+        $transactions = $wallet->transactions()
+            ->orderBy('created_at', "desc")
+            ->paginate($perPages);
 
         return response()->json([
             'success' => true,

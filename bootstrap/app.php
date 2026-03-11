@@ -1,10 +1,12 @@
 <?php
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -17,7 +19,20 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })
+
     ->withExceptions(function (Exceptions $exceptions) {
+        $exceptions->render(function (AuthenticationException $e, $request){
+            return response()->json([
+                'success' => false,
+                'message' => 'Non authentifié.',
+            ], 401);
+        });
+        $exceptions->render(function (AccessDeniedHttpException $e, $request){
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action.",
+            ], 403);
+        });
         $exceptions->render(function (ModelNotFoundException $e, $request){
             return response()->json([
                 'success' => false,
@@ -40,8 +55,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->render(function (\Throwable $e, $request){
                 return response()->json([
                     'success' => false,
-                    'message' => 'Error interne du serveur',
-                   'errors' => $e->errors()
+                    'message' => 'Une erreur interne est survenue. Veuillez réessayer.',
                 ], 500);
         });
 
