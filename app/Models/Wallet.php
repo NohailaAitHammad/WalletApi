@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,11 +11,16 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Wallet extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['balance', 'devise_id', 'deleted_at', 'user_id'];
+    protected $fillable = ['balance', 'name', 'currency_id', 'deleted_at', 'user_id'];
 
-    public function devise() : BelongsTo
+    protected $casts = [
+        'balance' => 'decimal:2',
+        ];
+
+
+    public function currency() : BelongsTo
     {
-        return $this->belongsTo(Devise::class);
+        return $this->belongsTo(Currency::class);
     }
     public function user() : BelongsTo
     {

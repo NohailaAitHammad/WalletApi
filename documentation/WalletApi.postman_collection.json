@@ -1,0 +1,1428 @@
+{
+  "info": {
+    "_postman_id": "e2836451-8eec-4a82-a503-ad8688b55daf",
+    "name": "WalletApi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53069716",
+    "_collection_link": "https://go.postman.co/collection/53069716-e2836451-8eec-4a82-a503-ad8688b55daf?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//     \"name\": \"Nohaila  Ait Hammad\",\r\n//     \"email\": \"Nohaila@example.com\",\r\n//     \"password\": \"SecureP@ss123\",\r\n//     \"password_confirmation\": \"SecureP@ss123\"\r\n// }\r\n\r\n//1|mwzCBnVNGPStmxWMfvffnxWBNwtqM0aH3aKYluUOe16d7f8e\r\n\r\n// {\r\n//     \"name\": \"walid  Ait Hammad\",\r\n//     \"email\": \"walid@example.com\",\r\n//     \"password\": \"SecureP@ss123\",\r\n//     \"password_confirmation\": \"SecureP@ss123\"\r\n// }\r\n//3|iaA3EKT1xZ1jsDn1T7jv54Diehy0vceWyIUHuyQTb92f7f63\r\n\r\n\r\n{\r\n    \"name\": \"USER 1\",\r\n    \"email\": \"user1@example.com\",\r\n    \"password\": \"SecureP@ss123\",\r\n    \"password_confirmation\": \"SecureP@ss123\"\r\n}\r\n\r\n//4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_path}}/register",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "register User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "// {\r\n//     \"name\": \"Nohaila  Ait Hammad\",\r\n//     \"email\": \"Nohaila@example.com\",\r\n//     \"password\": \"SecureP@ss123\",\r\n//     \"password_confirmation\": \"SecureP@ss123\"\r\n// }\r\n\r\n//1|mwzCBnVNGPStmxWMfvffnxWBNwtqM0aH3aKYluUOe16d7f8e\r\n\r\n// {\r\n//     \"name\": \"walid  Ait Hammad\",\r\n//     \"email\": \"walid@example.com\",\r\n//     \"password\": \"SecureP@ss123\",\r\n//     \"password_confirmation\": \"SecureP@ss123\"\r\n// }\r\n//3|iaA3EKT1xZ1jsDn1T7jv54Diehy0vceWyIUHuyQTb92f7f63\r\n\r\n\r\n{\r\n    \"name\": \"USER 1\",\r\n    \"email\": \"user1@example.com\",\r\n    \"password\": \"SecureP@ss123\",\r\n    \"password_confirmation\": \"SecureP@ss123\"\r\n}\r\n\r\n//4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_path}}/register",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "register"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 10:58:07 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 10:58:07 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Inscription reussie\",\n    \"data\": {\n        \"user\": {\n            \"name\": \"USER 1\",\n            \"email\": \"user1@example.com\",\n            \"updated_at\": \"2026-03-13T10:58:07.000000Z\",\n            \"created_at\": \"2026-03-13T10:58:07.000000Z\",\n            \"id\": 3\n        },\n        \"token\": \"4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "login User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|mwzCBnVNGPStmxWMfvffnxWBNwtqM0aH3aKYluUOe16d7f8e",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"Nohaila@example.com\",\r\n    \"password\": \"SecureP@ss123\"\r\n}\r\n\r\n//5|ITlAegAuT94IGJCbHUQnigvfVbCMJadGZWfGX5Yt49e202fa\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_path}}/login",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "login"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "login User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"Nohaila@example.com\",\r\n    \"password\": \"SecureP@ss123\"\r\n}\r\n\r\n//5|ITlAegAuT94IGJCbHUQnigvfVbCMJadGZWfGX5Yt49e202fa\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_path}}/login",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 10:59:19 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 10:59:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Connexion reussie\",\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Nohaila  Ait Hammad\",\n            \"email\": \"Nohaila@example.com\",\n            \"email_verified_at\": null,\n            \"deleted_at\": null,\n            \"created_at\": \"2026-03-11T20:42:36.000000Z\",\n            \"updated_at\": \"2026-03-11T20:42:36.000000Z\"\n        },\n        \"token\": \"5|ITlAegAuT94IGJCbHUQnigvfVbCMJadGZWfGX5Yt49e202fa\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "logout User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "5|ITlAegAuT94IGJCbHUQnigvfVbCMJadGZWfGX5Yt49e202fa",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_path}}/logout",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "logout User",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_path}}/logout",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "logout"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:00:50 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:00:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Deconnexion reusiie\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "profile user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_path}}/user",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "user"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "profile user",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_path}}/user",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "user"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:01:40 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:01:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Profile utilisateur recupere\",\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"USER 1\",\n        \"email\": \"user1@example.com\",\n        \"email_verified_at\": null,\n        \"deleted_at\": null,\n        \"created_at\": \"2026-03-13T10:58:07.000000Z\",\n        \"updated_at\": \"2026-03-13T10:58:07.000000Z\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wallets",
+      "item": [
+        {
+          "name": "lister wallets",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_path}}/wallets",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "lister wallets",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_path}}/wallets",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:03:47 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:03:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Liste des wallets recupéres\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"balance\": 100,\n            \"devise_id\": 1,\n            \"user_id\": 3,\n            \"deleted_at\": null,\n            \"created_at\": \"2026-03-13T11:03:14.000000Z\",\n            \"updated_at\": \"2026-03-13T11:03:14.000000Z\",\n            \"name\": null,\n            \"user\": {\n                \"id\": 3,\n                \"name\": \"USER 1\",\n                \"email\": \"user1@example.com\",\n                \"email_verified_at\": null,\n                \"deleted_at\": null,\n                \"created_at\": \"2026-03-13T10:58:07.000000Z\",\n                \"updated_at\": \"2026-03-13T10:58:07.000000Z\"\n            },\n            \"devise\": {\n                \"id\": 1,\n                \"nom\": \"MAD\",\n                \"deleted_at\": null,\n                \"created_at\": \"2026-03-11T20:43:52.000000Z\",\n                \"updated_at\": \"2026-03-11T20:43:52.000000Z\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "afficher une wallet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_path}}/wallets/4",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets",
+                "4"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "afficher une wallet",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_path}}/wallets/4",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    "4"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:04:17 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:04:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Detail du wallet recupére\",\n    \"data\": {\n        \"id\": 4,\n        \"balance\": 100,\n        \"devise_id\": 1,\n        \"user_id\": 3,\n        \"deleted_at\": null,\n        \"created_at\": \"2026-03-13T11:03:14.000000Z\",\n        \"updated_at\": \"2026-03-13T11:03:14.000000Z\",\n        \"name\": null,\n        \"devise\": {\n            \"id\": 1,\n            \"nom\": \"MAD\",\n            \"deleted_at\": null,\n            \"created_at\": \"2026-03-11T20:43:52.000000Z\",\n            \"updated_at\": \"2026-03-11T20:43:52.000000Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "creer Wallet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"balance\" : 100.00,\r\n    \"devise_id\" : 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_path}}/wallets",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Créer Wallet",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"balance\" : 100.00,\r\n    \"devise_id\" : 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_path}}/wallets",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "wallets"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:03:14 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:03:14 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Wallet cree avec succes\",\n    \"data\": {\n        \"devise_id\": 1,\n        \"balance\": 100,\n        \"user_id\": 3,\n        \"updated_at\": \"2026-03-13T11:03:14.000000Z\",\n        \"created_at\": \"2026-03-13T11:03:14.000000Z\",\n        \"id\": 4,\n        \"devise\": {\n            \"id\": 1,\n            \"nom\": \"MAD\",\n            \"deleted_at\": null,\n            \"created_at\": \"2026-03-11T20:43:52.000000Z\",\n            \"updated_at\": \"2026-03-11T20:43:52.000000Z\"\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "modifier Wallet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "3|iaA3EKT1xZ1jsDn1T7jv54Diehy0vceWyIUHuyQTb92f7f63",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"devise_id\": 2,\r\n    \"balance\" : 500.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_path}}/wallets/1",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "supprimer wallet",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "1|OdIVei0TzHlTIIQJgZQ2OUHPuqF85S96fN9fsG0n154fad08",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_path}}/wallets/3",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transactions",
+      "item": [
+        {
+          "name": "deposer de l'argent",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"amount\": 100,\r\n    \"description\": \"Depot initial\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_path}}/wallets/4/deposit",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets",
+                "4",
+                "deposit"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Déposer de l'argent",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"amount\": 100,\r\n    \"description\": \"Depot initial\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_path}}/wallets/4/deposit",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    "4",
+                    "deposit"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:05:38 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:05:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Depot effecture avec success\",\n    \"data\": {\n        \"amount\": 100,\n        \"description\": \"Depot initial\",\n        \"wallet_id\": 4,\n        \"type\": \"deposit\",\n        \"updated_at\": \"2026-03-13T11:05:38.000000Z\",\n        \"created_at\": \"2026-03-13T11:05:38.000000Z\",\n        \"id\": 28,\n        \"balance_after\": 200,\n        \"wallet\": {\n            \"id\": 4,\n            \"balance\": 200,\n            \"devise_id\": 1,\n            \"user_id\": 3,\n            \"deleted_at\": null,\n            \"created_at\": \"2026-03-13T11:03:14.000000Z\",\n            \"updated_at\": \"2026-03-13T11:05:38.000000Z\",\n            \"name\": null\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "retirerde l'argent Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"amount\" : 150,\r\n    \"description\": \"Retrait avec succes\"\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_path}}/wallets/4/withdraw",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets",
+                "4",
+                "withdraw"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "retirerde l'argent Copy",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"amount\" : 150,\r\n    \"description\": \"Retrait avec succes\"\r\n    \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_path}}/wallets/4/withdraw",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    "4",
+                    "withdraw"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:06:39 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:06:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Retrait effectué avec succès.\",\n    \"data\": {\n        \"amount\": 150,\n        \"description\": \"Retrait avec succes\",\n        \"wallet_id\": 4,\n        \"type\": \"withdraw\",\n        \"updated_at\": \"2026-03-13T11:06:39.000000Z\",\n        \"created_at\": \"2026-03-13T11:06:39.000000Z\",\n        \"id\": 29,\n        \"balance_after\": 50,\n        \"wallet\": {\n            \"id\": 4,\n            \"balance\": 50,\n            \"devise_id\": 1,\n            \"user_id\": 3,\n            \"deleted_at\": null,\n            \"created_at\": \"2026-03-13T11:03:14.000000Z\",\n            \"updated_at\": \"2026-03-13T11:06:39.000000Z\",\n            \"name\": null\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "transferer l'argent",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "4|HlJlj1O3K1JbW2LE0KrJoHQzt1CibPu1S1YvNHsX98ee8350",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"receiver_wallet_id\" : 5,\r\n    \"amount\": 50,\r\n    \"description\": \"Remboursement dejeuner\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_path}}/wallets/4/transfer",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets",
+                "4",
+                "transfer"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "transferer l'argent",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"receiver_wallet_id\" : 5,\r\n    \"amount\": 50,\r\n    \"description\": \"Remboursement dejeuner\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_path}}/wallets/4/transfer",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    "4",
+                    "transfer"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:10:38 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:10:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Transfert effectué avec succès.\",\n    \"data\": {\n        \"transaction_out\": {\n            \"wallet_id\": 4,\n            \"type\": \"transfer_out\",\n            \"amount\": 50,\n            \"description\": \"Remboursement dejeuner\",\n            \"receiver_wallet_id\": 5,\n            \"balance_after\": 0,\n            \"updated_at\": \"2026-03-13T11:10:38.000000Z\",\n            \"created_at\": \"2026-03-13T11:10:38.000000Z\",\n            \"id\": 30\n        },\n        \"transaction_in\": {\n            \"wallet_id\": 5,\n            \"type\": \"transfer_in\",\n            \"amount\": 50,\n            \"description\": \"Remboursement dejeuner\",\n            \"sender_wallet_id\": 4,\n            \"balance_after\": 50,\n            \"updated_at\": \"2026-03-13T11:10:38.000000Z\",\n            \"created_at\": \"2026-03-13T11:10:38.000000Z\",\n            \"id\": 31\n        },\n        \"wallet\": {\n            \"id\": 4,\n            \"balance\": 0,\n            \"devise_id\": 1,\n            \"user_id\": 3,\n            \"deleted_at\": null,\n            \"created_at\": \"2026-03-13T11:03:14.000000Z\",\n            \"updated_at\": \"2026-03-13T11:10:38.000000Z\",\n            \"name\": null,\n            \"devise\": {\n                \"id\": 1,\n                \"nom\": \"MAD\",\n                \"deleted_at\": null,\n                \"created_at\": \"2026-03-11T20:43:52.000000Z\",\n                \"updated_at\": \"2026-03-11T20:43:52.000000Z\"\n            }\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "historiques des transasctions",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "6|gpc3EnuScNncvvyLKaJklWIHAuYJ8QhnZr0pX8gW37d7cfe6",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_path}}/wallets/4/transactions",
+              "host": [
+                "{{base_path}}"
+              ],
+              "path": [
+                "wallets",
+                "4",
+                "transactions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Historiques des transactions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_path}}/wallets/4/transactions",
+                  "host": [
+                    "{{base_path}}"
+                  ],
+                  "path": [
+                    "wallets",
+                    "4",
+                    "transactions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Host",
+                  "value": "127.0.0.1:8000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:15:07 GMT"
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 13 Mar 2026 11:15:07 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/8.2.0"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"success\": true,\n    \"message\": \"Historique des transactions recupere\",\n    \"data\": {\n        \"transactions\": {\n            \"current_page\": 1,\n            \"data\": [\n                {\n                    \"id\": 30,\n                    \"type\": \"transfer_out\",\n                    \"wallet_id\": 4,\n                    \"amount\": 50,\n                    \"description\": \"Remboursement dejeuner\",\n                    \"receiver_wallet_id\": 5,\n                    \"sender_wallet_id\": null,\n                    \"balance_after\": 0,\n                    \"created_at\": \"2026-03-13T11:10:38.000000Z\",\n                    \"updated_at\": \"2026-03-13T11:10:38.000000Z\"\n                },\n                {\n                    \"id\": 29,\n                    \"type\": \"withdraw\",\n                    \"wallet_id\": 4,\n                    \"amount\": 150,\n                    \"description\": \"Retrait avec succes\",\n                    \"receiver_wallet_id\": null,\n                    \"sender_wallet_id\": null,\n                    \"balance_after\": 50,\n                    \"created_at\": \"2026-03-13T11:06:39.000000Z\",\n                    \"updated_at\": \"2026-03-13T11:06:39.000000Z\"\n                },\n                {\n                    \"id\": 28,\n                    \"type\": \"deposit\",\n                    \"wallet_id\": 4,\n                    \"amount\": 100,\n                    \"description\": \"Depot initial\",\n                    \"receiver_wallet_id\": null,\n                    \"sender_wallet_id\": null,\n                    \"balance_after\": 200,\n                    \"created_at\": \"2026-03-13T11:05:38.000000Z\",\n                    \"updated_at\": \"2026-03-13T11:05:38.000000Z\"\n                }\n            ],\n            \"first_page_url\": \"http://127.0.0.1:8000/api/wallets/4/transactions?page=1\",\n            \"from\": 1,\n            \"last_page\": 1,\n            \"last_page_url\": \"http://127.0.0.1:8000/api/wallets/4/transactions?page=1\",\n            \"links\": [\n                {\n                    \"url\": null,\n                    \"label\": \"&laquo; Previous\",\n                    \"page\": null,\n                    \"active\": false\n                },\n                {\n                    \"url\": \"http://127.0.0.1:8000/api/wallets/4/transactions?page=1\",\n                    \"label\": \"1\",\n                    \"page\": 1,\n                    \"active\": true\n                },\n                {\n                    \"url\": null,\n                    \"label\": \"Next &raquo;\",\n                    \"page\": null,\n                    \"active\": false\n                }\n            ],\n            \"next_page_url\": null,\n            \"path\": \"http://127.0.0.1:8000/api/wallets/4/transactions\",\n            \"per_page\": 15,\n            \"prev_page_url\": null,\n            \"to\": 3,\n            \"total\": 3\n        },\n        \"pagination\": null\n    }\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_path",
+      "value": "http://127.0.0.1:8000/api",
+      "type": "default"
+    }
+  ]
+}

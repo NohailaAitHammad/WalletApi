@@ -14,7 +14,8 @@ class WalletController extends Controller
      */
     public function index()
     {
-        $wallets = Wallet::where('user_id', auth()->id())->with('user', 'devise')->get();
+
+        $wallets = Wallet::where('user_id', auth()->id())->with('user', 'currency')->get();
 
         return response()->json([
             "success" => true,
@@ -33,7 +34,7 @@ class WalletController extends Controller
         $validateed['user_id'] = auth()->id();
 
         $wallet = Wallet::create($validateed);
-        $wallet->load('devise');
+        $wallet->load('currency');
         return response()->json([
             'success' => true,
             'message' => 'Wallet cree avec succes',
@@ -48,7 +49,7 @@ class WalletController extends Controller
      */
     public function show(Wallet  $wallet)
     {
-        if ($wallet->user_id !== auth()->id()) {
+        if ($wallet->user->id !== auth()->id()) {
             return response()->json([
                 'success' => false,
                 'message' => "Vous n'êtes pas autorisé à effectuer cette action."
@@ -60,7 +61,7 @@ class WalletController extends Controller
                 'message' => "Le wallet  est introuvable",
             ], 404);
         }
-        $wallet->load('devise');
+        $wallet->load('currency');
         return response()->json([
             "success" => true,
             'message' => 'Detail du wallet recupére',
@@ -85,11 +86,11 @@ class WalletController extends Controller
         $wallet->devise_id = $validateed['devise_id'];
         $wallet->balance = $validateed['balance'];
         $wallet->save();
-        $wallet->load('devise');
+        $wallet->load('currency');
         return response()->json([
             'success' => true,
             'message' => 'Wallet mise a jour  avec succes',
-            'data' => $wallet->devise,
+            'data' => $wallet->currency,
         ]);
 
     }

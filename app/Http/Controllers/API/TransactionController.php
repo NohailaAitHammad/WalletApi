@@ -17,16 +17,39 @@ class TransactionController extends Controller
      */
     public function transactions(Request  $request,Wallet  $wallet)
     {
-        $perPages = $request->get('per_page', 15);
+        if(auth()->id() !== $wallet->user->id){
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action."
+            ], 403);
+        }
+        $perPages = $request->query('per_page', 15);
 
         $transactions = $wallet->transactions()
-            ->orderBy('created_at', "desc")
+            ->select([
+                'id',
+                'wallet_id',
+                'type',
+                'amount',
+                'description',
+                'receiver_wallet_id',
+                'sender_wallet_id',
+                'balance_after',
+                'created_at'
+            ])
+            ->latest()
             ->paginate($perPages);
 
         return response()->json([
             'success' => true,
             'message' => 'Historique des transactions recupere',
-            'data' => $transactions
+            'data' => ['transactions' => $transactions->items(),
+                'pagination' => [
+                    'current_page' => $transactions->currentPage(),
+                    'last_page' => $transactions->lastPage(),
+                    'per_page' => $transactions->perPage(),
+                    'total' => $transactions->total(),
+                ]]
         ]);
 
     }
@@ -36,11 +59,17 @@ class TransactionController extends Controller
      */
     public function deposit(TransactionRequest $request, Wallet  $wallet)
     {
+        if(auth()->id() !== $wallet->user->id){
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action."
+            ], 403);
+        }
         $validated = $request->validated();
         $validated['wallet_id'] = $wallet->id;
         $validated['type'] = 'deposit';
         $transaction = Transaction::create($validated);
-        $transaction->balance_after = $wallet->balance + $transaction->amount;
+        $transaction->balance_after =$wallet->balance + $transaction->amount;
         $wallet->balance = $transaction->balance_after;
         $wallet->save();
         $transaction->save();
@@ -58,6 +87,12 @@ class TransactionController extends Controller
      */
     public function withdraw(TransactionRequest $request, Wallet  $wallet)
     {
+        if(auth()->id() !== $wallet->user->id){
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action."
+            ], 403);
+        }
         $validated = $request->validated();
         $validated['wallet_id'] = $wallet->id;
         $validated['type'] = 'withdraw';
@@ -78,6 +113,13 @@ class TransactionController extends Controller
 
     public function transfer(TransactionRequest $request, Wallet  $wallet)
     {
+        if(auth()->id() !== $wallet->user->id){
+            return response()->json([
+                'success' => false,
+                'message' => "Vous n'êtes pas autorisé à effectuer cette action."
+            ], 403);
+        }
+
         $validated = $request->validated();
         if($wallet->balance < $validated['amount']){
             return response()->json([
@@ -94,7 +136,7 @@ class TransactionController extends Controller
                 'message' => "Le wallet destinataire est introuvable",
             ], 404);
         }
-        if($wallet->devise->nom !== $receiverWallet->devise->nom){
+        if($wallet->currency->nom !== $receiverWallet->currency->nom){
             return response()->json([
                 'success' => false,
                 'message' => "Transfert impossible : les deux wallets doivent avoir la même devise.",

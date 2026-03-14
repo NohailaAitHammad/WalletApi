@@ -22,8 +22,8 @@ class WalletRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'devise_id' => ['required', 'exists:devises,id'],
-            'balance' => ['required', 'integer'],
+            'currency_id' => ['required', 'exists:currencies,id'],
+            'balance' => ['required', 'string'],
         ];
     }
 }

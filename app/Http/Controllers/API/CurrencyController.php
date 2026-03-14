@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Devise;
+use App\Models\Currency;
 use Illuminate\Http\Request;
 
-class DeviseController extends Controller
+class CurrencyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       // $devises = Devise::all();
+       // $devises = Currency::all();
 
     }
 

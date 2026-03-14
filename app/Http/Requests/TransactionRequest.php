@@ -23,7 +23,7 @@ class TransactionRequest extends FormRequest
     {
         return [
             'type' => ['sometimes','required', 'string'],
-            'amount' => ['required','min:1', 'numeric'],
+            'amount' => ['required','min:1', 'string'],
             'description' => ['required', 'string', 'max:255'],
             'receiver_wallet_id' => ['sometimes', 'required', 'exists:wallets,id'],
             'sender_wallet_id' => ['sometimes','required', 'exists:wallets,id'],

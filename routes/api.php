@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/user', function (Request $request) {
 //    return $request->user();
 //})->middleware('auth:sanctum');
-Route::post('/user/register', [AuthController::class, 'register' ]);
-Route::post('/user/login', [AuthController::class, 'login' ]);
+Route::post('/register', [AuthController::class, 'register' ]);
+Route::post('/login', [AuthController::class, 'login' ]);
 
 Route::middleware('auth:sanctum')->group(function (){
     Route::get('/user', [AuthController::class, 'user']);
-    Route::post('/user/logout', [AuthController::class, 'logout' ]);
+    Route::post('/logout', [AuthController::class, 'logout' ]);
     Route::apiResource('wallets', WalletController::class);
     Route::post('/wallets/{wallet}/deposit', [TransactionController::class, 'deposit']);
     Route::post('/wallets/{wallet}/withdraw', [TransactionController::class, 'withdraw']);

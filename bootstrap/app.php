@@ -52,12 +52,12 @@ return Application::configure(basePath: dirname(__DIR__))
                 'errors' => $e->errors(),
             ], 422);
         });
-        $exceptions->render(function (\Throwable $e, $request){
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Une erreur interne est survenue. Veuillez réessayer.',
-                ], 500);
-        });
+//        $exceptions->render(function (\Throwable $e, $request){
+//                return response()->json([
+//                    'success' => false,
+//                    'message' => 'Une erreur interne est survenue. Veuillez réessayer.',
+//                ], 500);
+//        });
 
 
     })

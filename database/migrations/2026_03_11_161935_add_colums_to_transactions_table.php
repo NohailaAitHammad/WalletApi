@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->enum('type', ['deposit', 'withdraw', 'transfer_out', 'transfer_in'])->nullable();
             $table->foreignId('wallet_id')->constrained()->cascadeOnDelete();
-            $table->float('amount')->default(0.00);
+            $table->string('amount')->default('0.00');
             $table->text('description')->nullable();
             $table->foreignId('receiver_wallet_id')->nullable()->constrained('wallets')->cascadeOnDelete();
             $table->foreignId('sender_wallet_id')->nullable()->constrained('wallets')->cascadeOnDelete();

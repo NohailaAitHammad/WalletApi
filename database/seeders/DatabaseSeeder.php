@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Devise;
+use App\Models\Currency;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,13 +18,13 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        Devise::create([
+        Currency::create([
             'nom' => "MAD",
         ]);
-        Devise::create([
+        Currency::create([
             'nom' => "EUR",
         ]);
-        Devise::create([
+        Currency::create([
             'nom' => "USD",
         ]);
     }
